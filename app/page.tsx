@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import VatsoraLogo from './components/VatsoraLogo'
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -28,22 +29,21 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-50 bg-[#0D0D0D]/90 backdrop-blur-lg border-b border-[#1A1F71]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-20">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-[#EEC643] to-[#1A1F71] rounded-lg animate-glow"></div>
+            <div className="flex items-center space-x-2 md:space-x-3">
+              <VatsoraLogo className="w-10 h-10 md:w-14 md:h-14 animate-glow" />
               <span className="text-xl md:text-2xl font-bold gradient-text">VATSORA STUDIO</span>
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="hover:text-[#EEC643] transition-colors duration-300">Home</a>
               <a href="#about" className="hover:text-[#EEC643] transition-colors duration-300">About</a>
               <a href="#services" className="hover:text-[#EEC643] transition-colors duration-300">Services</a>
-              <a href="#careers" className="hover:text-[#EEC643] transition-colors duration-300">Careers</a>
               <a href="#contact" className="hover:text-[#EEC643] transition-colors duration-300">Contact</a>
             </div>
             <a 
-              href="#careers" 
+              href="#contact" 
               className="bg-[#EEC643] text-[#0D0D0D] px-4 md:px-6 py-2 rounded-lg font-semibold hover:bg-[#1A1F71] hover:text-white transition-all duration-300 text-sm md:text-base"
             >
-              Join Us
+              Get in Touch
             </a>
           </div>
         </div>
@@ -62,20 +62,21 @@ export default function Home() {
             <div className="inline-block mb-4 md:mb-6 px-4 md:px-6 py-2 bg-[#1A1F71]/30 rounded-full border border-[#EEC643]/50">
               <span className="text-[#EEC643] text-xs md:text-sm font-semibold">✨ Launching the Future of Digital Expression</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6 leading-tight">
-              Building the Future of
-              <br />
-              <span className="gradient-text">Digital Expression</span>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 md:mb-6 leading-tight px-2">
+              <span className="block text-white mb-2">Building the Future of</span>
+              <span className="block gradient-text italic font-extrabold tracking-tight" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
+                Digital Expression
+              </span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 md:mb-12 max-w-3xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 md:mb-12 max-w-3xl mx-auto px-4 leading-relaxed">
               Where Ideas Evolve into Impact. A next-generation creative and tech brand redefining innovation, design, and digital evolution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center px-4">
               <a 
-                href="#careers" 
+                href="#contact" 
                 className="bg-[#EEC643] text-[#0D0D0D] px-6 md:px-10 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg hover:scale-105 transition-transform duration-300 animate-glow"
               >
-                Join the Movement
+                Get Started
               </a>
               <a 
                 href="#services" 
@@ -115,9 +116,9 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="space-y-4 md:space-y-6">
               <div className="bg-gradient-to-br from-[#1A1F71]/30 to-transparent border border-[#EEC643]/20 rounded-2xl p-6 md:p-8 hover:border-[#EEC643]/50 transition-all duration-300">
-                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-[#EEC643]">Founded by Sourabh Bhatt</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-[#EEC643]">Our Mission</h3>
                 <p className="text-sm md:text-base text-gray-300">
-                  Software Engineer at Truedeal and Founder of VATSORA™. A visionary bridging the gap between technology and creativity, building products that matter.
+                  VATSORA™ is a visionary brand bridging the gap between technology and creativity, building products and experiences that matter in the digital age.
                 </p>
               </div>
 
@@ -215,123 +216,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Careers Section */}
-      <section id="careers" className="py-16 md:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
-              Your Journey <span className="gradient-text">Starts Here</span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-400">
-              Join a team that&apos;s building the future of creative technology
-            </p>
-          </div>
-
-          {/* Current Opening */}
-          <div className="bg-gradient-to-br from-[#EEC643]/20 via-[#1A1F71]/20 to-transparent border-2 border-[#EEC643] rounded-3xl p-6 md:p-10 mb-8 md:mb-12 animate-glow">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 md:mb-8">
-              <div>
-                <div className="inline-block px-3 md:px-4 py-1 md:py-2 bg-[#EEC643] text-[#0D0D0D] rounded-full text-xs md:text-sm font-bold mb-3 md:mb-4">
-                  🔥 NOW HIRING
-                </div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Video Editor Intern</h3>
-                <p className="text-lg md:text-xl text-[#EEC643]">₹5,000/month • Remote</p>
-              </div>
-            </div>
-
-            <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
-              <div className="flex items-start space-x-3">
-                <span className="text-[#EEC643] text-lg md:text-xl">✓</span>
-                <p className="text-sm md:text-base text-gray-300">Passionate about storytelling, timing, and design</p>
-              </div>
-              <div className="flex items-start space-x-3">
-                <span className="text-[#EEC643] text-lg md:text-xl">✓</span>
-                <p className="text-sm md:text-base text-gray-300">Experience with Adobe Premiere Pro, After Effects, or DaVinci Resolve</p>
-              </div>
-              <div className="flex items-start space-x-3">
-                <span className="text-[#EEC643] text-lg md:text-xl">✓</span>
-                <p className="text-sm md:text-base text-gray-300">Strong portfolio showcasing creative editing skills</p>
-              </div>
-              <div className="flex items-start space-x-3">
-                <span className="text-[#EEC643] text-lg md:text-xl">✓</span>
-                <p className="text-sm md:text-base text-gray-300">Ability to work remotely and meet deadlines</p>
-              </div>
-            </div>
-
-            <div className="bg-[#1A1F71]/50 rounded-2xl p-4 md:p-6 border border-[#EEC643]/30">
-              <p className="text-sm md:text-base text-gray-300">
-                <strong className="text-white">What you&apos;ll gain:</strong> Hands-on experience in a fast-growing creative studio, mentorship from industry professionals, and the opportunity to work on real-world projects that make an impact.
-              </p>
-            </div>
-          </div>
-
-          {/* Application Form */}
-          <div className="bg-gradient-to-br from-[#1A1F71]/30 to-transparent border border-[#EEC643]/20 rounded-2xl p-6 md:p-10">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">Apply Now</h3>
-            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-              <div>
-                <label className="block text-sm md:text-base font-semibold mb-2">Your Name *</label>
-                <input 
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-[#0D0D0D] border border-[#1A1F71] rounded-lg px-4 py-3 md:py-4 focus:border-[#EEC643] focus:outline-none transition-colors text-sm md:text-base"
-                  placeholder="Enter your full name"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm md:text-base font-semibold mb-2">Email Address *</label>
-                <input 
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-[#0D0D0D] border border-[#1A1F71] rounded-lg px-4 py-3 md:py-4 focus:border-[#EEC643] focus:outline-none transition-colors text-sm md:text-base"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm md:text-base font-semibold mb-2">Portfolio Link *</label>
-                <input 
-                  type="url"
-                  name="portfolio"
-                  value={formData.portfolio}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-[#0D0D0D] border border-[#1A1F71] rounded-lg px-4 py-3 md:py-4 focus:border-[#EEC643] focus:outline-none transition-colors text-sm md:text-base"
-                  placeholder="https://yourportfolio.com or YouTube/Vimeo"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm md:text-base font-semibold mb-2">Why You&apos;d Like to Join *</label>
-                <textarea 
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full bg-[#0D0D0D] border border-[#1A1F71] rounded-lg px-4 py-3 md:py-4 focus:border-[#EEC643] focus:outline-none transition-colors resize-none text-sm md:text-base"
-                  placeholder="Tell us about yourself, your experience, and what excites you about joining Vatsora Studio..."
-                ></textarea>
-              </div>
-
-              <button 
-                type="submit"
-                className="w-full bg-[#EEC643] text-[#0D0D0D] py-3 md:py-4 rounded-lg font-bold text-base md:text-lg hover:bg-[#1A1F71] hover:text-white transition-all duration-300 hover:scale-105"
-              >
-                Submit Application
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section id="contact" className="py-16 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-[#1A1F71]/20">
         <div className="max-w-4xl mx-auto text-center">
@@ -342,44 +226,10 @@ export default function Home() {
             Have a project in mind? Let&apos;s build something extraordinary.
           </p>
 
-          <div className="grid sm:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
-            <a 
-              href="mailto:contact@vatsora.com"
-              className="group bg-gradient-to-br from-[#1A1F71]/30 to-transparent border border-[#EEC643]/20 rounded-2xl p-6 md:p-8 hover:border-[#EEC643] transition-all duration-300 hover:scale-105"
-            >
-              <div className="text-3xl md:text-4xl mb-3 md:mb-4">📧</div>
-              <h3 className="text-lg md:text-xl font-bold mb-2">Email Us</h3>
-              <p className="text-sm md:text-base text-gray-400 group-hover:text-[#EEC643] transition-colors">contact@vatsora.com</p>
-            </a>
-
-            <a 
-              href="#careers"
-              className="group bg-gradient-to-br from-[#1A1F71]/30 to-transparent border border-[#EEC643]/20 rounded-2xl p-6 md:p-8 hover:border-[#EEC643] transition-all duration-300 hover:scale-105"
-            >
-              <div className="text-3xl md:text-4xl mb-3 md:mb-4">💼</div>
-              <h3 className="text-lg md:text-xl font-bold mb-2">Join Our Team</h3>
-              <p className="text-sm md:text-base text-gray-400 group-hover:text-[#EEC643] transition-colors">View open positions</p>
-            </a>
-          </div>
+          
 
           {/* Social Links */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            {[
-              { name: 'LinkedIn', icon: '💼', url: '#' },
-              { name: 'GitHub', icon: '🐙', url: '#' },
-              { name: 'Twitter', icon: '𝕏', url: '#' },
-              { name: 'Hashnode', icon: '📝', url: '#' }
-            ].map((social, idx) => (
-              <a 
-                key={idx}
-                href={social.url}
-                className="flex items-center space-x-2 bg-[#1A1F71]/30 border border-[#EEC643]/20 rounded-lg px-4 md:px-6 py-2 md:py-3 hover:border-[#EEC643] hover:scale-105 transition-all duration-300"
-              >
-                <span className="text-lg md:text-xl">{social.icon}</span>
-                <span className="text-sm md:text-base font-semibold">{social.name}</span>
-              </a>
-            ))}
-          </div>
+          
         </div>
       </section>
 
@@ -391,12 +241,9 @@ export default function Home() {
               <p className="text-sm md:text-base text-gray-400">
                 © 2025 Vatsora Studio. A Vision of the Vatsora Universe.
               </p>
-              <p className="text-xs md:text-sm text-gray-500 mt-1">
-                Built by <span className="text-[#EEC643] font-semibold">Sourabh Bhatt</span>
-              </p>
             </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 md:w-8 md:h-8 bg-gradient-to-br from-[#EEC643] to-[#1A1F71] rounded-lg"></div>
+            <div className="flex items-center space-x-2 md:space-x-3">
+              <VatsoraLogo className="w-8 h-8 md:w-12 md:h-12" />
               <span className="text-base md:text-lg font-bold gradient-text">VATSORA™</span>
             </div>
           </div>
