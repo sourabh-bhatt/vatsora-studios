@@ -249,6 +249,13 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      {/* Decorative animated section below the footer */}
+      <div className="footer-animation" aria-hidden="true">
+        <div className="gradient-bg" />
+        <svg className="wave" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,96 C240,160 480,32 720,96 C960,160 1200,32 1440,96 L1440,200 L0,200 Z" />
+        </svg>
+      </div>
     </main>
   )
 }
