@@ -60,13 +60,13 @@ body {
 }
 
 /* Footer decorative animation */
-/* .footer-animation {
+.footer-animation {
   position: relative;
   width: 100%;
   height: 140px;
   overflow: hidden;
   margin-top: -1px; 
-} */
+}
 
 .footer-animation .gradient-bg {
   position: absolute;
