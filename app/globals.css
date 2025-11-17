@@ -104,3 +104,96 @@ body {
   50% { transform: translateX(8px); }
   100% { transform: translateX(0); }
 }
+
+/* Floating particles animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-20px) rotate(90deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-40px) rotate(180deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-20px) rotate(270deg);
+    opacity: 0.8;
+  }
+}
+
+/* Cursor trail effect */
+.cursor-trail {
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transition: transform 0.1s ease-out;
+}
+
+/* Card tilt effect */
+.card-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(10px);
+}
+
+/* Scroll reveal animation */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: revealFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes revealFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scroll with offset */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Glowing border effect */
+@keyframes glowBorder {
+  0%, 100% {
+    border-color: rgba(238, 198, 67, 0.3);
+    box-shadow: 0 0 10px rgba(238, 198, 67, 0.2);
+  }
+  50% {
+    border-color: rgba(238, 198, 67, 0.8);
+    box-shadow: 0 0 25px rgba(238, 198, 67, 0.5);
+  }
+}
+
+/* Pulse animation delay */
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+/* Enhanced hover effects */
+.group:hover .group-hover\:scale-110 {
+  transform: scale(1.1);
+}
+
+/* Background gradient animation for sections */
+@keyframes backgroundShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-bg {
+  background-size: 200% 200%;
+  animation: backgroundShift 15s ease infinite;
+}

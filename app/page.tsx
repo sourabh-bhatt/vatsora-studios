@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import VatsoraLogo from './components/VatsoraLogo'
 
 export default function Home() {
@@ -10,6 +10,36 @@ export default function Home() {
     portfolio: '',
     message: ''
   })
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; size: number }>>([])
+  const cursorTrailRef = useRef<HTMLDivElement>(null)
+
+  // Mouse tracking for parallax and cursor trail
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+      
+      // Cursor trail effect
+      if (cursorTrailRef.current) {
+        cursorTrailRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
+      }
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
+  // Generate floating particles
+  useEffect(() => {
+    const newParticles = Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 2
+    }))
+    setParticles(newParticles)
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -24,7 +54,31 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden">
+    <main className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden relative">
+      {/* Custom Cursor Trail */}
+      <div 
+        ref={cursorTrailRef}
+        className="cursor-trail pointer-events-none fixed w-8 h-8 rounded-full border-2 border-[#EEC643]/50 z-50 transition-transform duration-100 ease-out"
+        style={{ left: '-16px', top: '-16px' }}
+      />
+
+      {/* Floating Particles */}
+      <div className="particles-container fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="particle absolute rounded-full bg-[#EEC643]/20"
+            style={{
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              animation: `float ${10 + Math.random() * 10}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 5}s`
+            }}
+          />
+        ))}
+      </div>
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-[#0D0D0D]/90 backdrop-blur-lg border-b border-[#1A1F71]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,8 +107,18 @@ export default function Home() {
       <section id="home" className="min-h-screen flex items-center justify-center relative pt-16 md:pt-0 px-4">
         {/* Animated Background */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-96 h-96 bg-[#1A1F71] rounded-full blur-3xl opacity-20 -top-48 -left-48 animate-pulse"></div>
-          <div className="absolute w-96 h-96 bg-[#EEC643] rounded-full blur-3xl opacity-20 -bottom-48 -right-48 animate-pulse delay-1000"></div>
+          <div 
+            className="absolute w-96 h-96 bg-[#1A1F71] rounded-full blur-3xl opacity-20 -top-48 -left-48 animate-pulse transition-transform duration-300"
+            style={{
+              transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`
+            }}
+          ></div>
+          <div 
+            className="absolute w-96 h-96 bg-[#EEC643] rounded-full blur-3xl opacity-20 -bottom-48 -right-48 animate-pulse delay-1000 transition-transform duration-300"
+            style={{
+              transform: `translate(${-mousePosition.x * 0.02}px, ${-mousePosition.y * 0.02}px)`
+            }}
+          ></div>
         </div>
 
         <div className="max-w-7xl mx-auto text-center relative z-10 py-12 md:py-0">
@@ -92,7 +156,7 @@ export default function Home() {
             {['Creative Studio', 'AI-Driven', 'Tech Focused', 'Innovation First'].map((item, idx) => (
               <div 
                 key={idx} 
-                className="bg-gradient-to-br from-[#1A1F71]/50 to-transparent border border-[#EEC643]/30 rounded-xl p-3 md:p-6 hover:border-[#EEC643] transition-all duration-300 hover:scale-105"
+                className="bg-gradient-to-br from-[#1A1F71]/50 to-transparent border border-[#EEC643]/30 rounded-xl p-3 md:p-6 hover:border-[#EEC643] transition-all duration-300 hover:scale-105 card-tilt cursor-pointer"
               >
                 <p className="text-xs md:text-base font-semibold">{item}</p>
               </div>
@@ -205,7 +269,8 @@ export default function Home() {
             ].map((service, idx) => (
               <div 
                 key={idx}
-                className="group bg-gradient-to-br from-[#1A1F71]/30 to-transparent border border-[#EEC643]/20 rounded-2xl p-6 md:p-8 hover:border-[#EEC643] hover:scale-105 transition-all duration-300"
+                className="group bg-gradient-to-br from-[#1A1F71]/30 to-transparent border border-[#EEC643]/20 rounded-2xl p-6 md:p-8 hover:border-[#EEC643] hover:scale-105 transition-all duration-300 card-tilt reveal-on-scroll cursor-pointer"
+                style={{ animationDelay: `${idx * 0.1}s` }}
               >
                 <div className="text-4xl md:text-5xl mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
                 <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-[#EEC643]">{service.title}</h3>
